@@ -2,20 +2,20 @@
 const educationHistory = [
   {
     id: 1,
-    period: "2022 - Sekarang",
-    institution: "Universitas GadjahMada",
-    major: "S1 - Teknik Informatika",
+    period: "2023 - Sekarang",
+    institution: "UNIVERSITA AMIKOM YOGYAKARTA",
+    major: "S1 - Informatika",
   },
   {
     id: 2,
-    period: "2019 - 2022",
-    institution: "SMA Negeri 1 TeladanYogyakarta",
-    major: "MIPA",
+    period: "2018 - 2021",
+    institution: "SMK TI BALI GLOBAL JIMBARAN",
+    major: "RPL",
   },
 ];
 const skills = [
-  { name: "Vue.js", level: "Mahir" },
-  { name: "JavaScript", level: "Mahir" },
+  { name: "Vue.js", level: "Menengah" },
+  { name: "PHP", level: "Mahir" },
   { name: "Tailwind CSS", level: "Mahir" },
   { name: "Node.js", level: "Menengah" },
 
@@ -26,17 +26,10 @@ const skills = [
 ];
 const projects = [
   {
-    title: "Website Toko Online",
-    image: "https://via.placeholder.com/500x300?text=Proyek+1",
-    description: "Platform e-commerce dengan fitur keranjang belanja.",
-    tech: ["Vue.js", "Express.js", "PostgreSQL"],
-    link: "#",
-  },
-  {
-    title: "Aplikasi Manajemen Tugas",
-    image: "https://via.placeholder.com/500x300?text=Proyek+2",
-    description: "Aplikasi untuk melacak progres tugas harian.",
-    tech: ["React", "Firebase"],
+    title: "Course ONLINE",
+    image: "/images/itqom.jpg",
+    description: "Platform Belajar Dengan Sistem Online.",
+    tech: ["PHP", "Blade", "JavaScript"],
     link: "#",
   },
 ];

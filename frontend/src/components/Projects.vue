@@ -2,43 +2,65 @@
 import { ref, onMounted } from 'vue';
 import axios from 'axios';
 import SectionTitle from './SectionTitle.vue';
+
 const projects = ref([]);
+
 onMounted(async () => {
-try { const response = await
-axios.get('http://localhost:3000/api/projects'); projects.value =
-response.data; } catch (error) { console.error(error); }
+  try {
+    const response = await axios.get('http://localhost:3000/api/projects');
+    projects.value = response.data;
+  } catch (error) {
+    console.error(error);
+  }
 });
 </script>
+
 <template>
-  <section id="proyek" class="py-20 bg-white">
+  <section id="proyek" class="py-20 bg-gradient-to-br from-white to-blue-50">
     <div class="container mx-auto px-6">
       <SectionTitle title="Proyek Unggulan" />
-      <div class="grid md:grid-cols-2 gap-12">
+      <div class="grid md:grid-cols-2 gap-10 mt-10">
         <div
           v-for="project in projects"
           :key="project.title"
-          class="bg-gray-50 rounded-lg shadow-lg overflow-hidden"
+          class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300 group"
         >
-          <img :src="project.image" alt="Gambar Proyek" class="w-full h-56 object-cover" />
-          <div class="p-6">
-            <h3 class="text-2xl font-bold text-gray-800 mb-2">{{ project.title }}</h3>
-            <p class="text-gray-600 mb-4">{{ project.description }}</p>
-            <div class="mb-4">
+          <!-- Gambar Proyek -->
+          <div class="overflow-hidden">
+            <img
+              :src="project.image"
+              alt="Gambar Proyek"
+              class="w-full h-56 object-cover transform group-hover:scale-105 transition duration-500"
+            />
+          </div>
+
+          <!-- Konten -->
+          <div class="p-6 space-y-4">
+            <h3 class="text-2xl font-bold text-blue-800 group-hover:text-blue-600 transition">
+              {{ project.title }}
+            </h3>
+            <p class="text-gray-600">{{ project.description }}</p>
+
+            <!-- Teknologi -->
+            <div class="flex flex-wrap gap-2">
               <span
                 v-for="t in project.tech"
                 :key="t"
-                class="inline- block bg-blue-100 text-blue-800 text-sm font-semibold mr-2 mb-2 px-2.5 py-0.5 rounded-full"
-                >{{ t }}</span
+                class="bg-blue-100 text-blue-800 text-xs font-medium px-3 py-1 rounded-full"
               >
+                {{ t }}
+              </span>
             </div>
+
+            <!-- Link -->
             <a
               :href="project.link"
               target="_blank"
-              rel="noopener
-noreferrer"
-              class="text-blue-600 font-semibold hover:underline"
-              >Lihat Detail &rarr;</a
+              rel="noopener noreferrer"
+              class="inline-block text-sm font-semibold text-blue-600 hover:text-blue-800 transition"
             >
+              🔗 Lihat Detail →
+            </a>
           </div>
         </div>
       </div>
